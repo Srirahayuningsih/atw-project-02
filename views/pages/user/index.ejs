@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<%- include('../components/navbar') %>
+	<a href="/users/create">Registrasi</a>
+
+	<h1>Daftar User (<%=users.length %>)</h1>
+	<form action="/users">
+		<input type="text" name="keyword">
+		<button type="submit">Cari</button>
+	</form>
+	<ul>
+		<% if(users.length > 0) { %>
+			<% users.forEach(function(user) { %>
+				<li><a href="/users/<%=user._id %>">
+					<%=user.name.toUpperCase() %></a>
+				</li>
+			<% }) %>
+		<% } else { %>
+		<li>data user kosong.</li>
+	<% } %>
+	</ul><hr>
+<footer>
+	
+	<p>&copy; 2021 Programming.Sri Rahayu Ningsih</p>
+	<hr>
+</footer>
+
+</body>
+</html>
